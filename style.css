@@ -10,18 +10,18 @@ body {
   height: 100vh;
 }
 
-.display, .mirror {
+.letters {
   font-size: 10vmax;
   font-family: 'Major Mono Display', monospace;
   text-align: center;
   line-height: 1;
 }
 
-.display > .text {
+.letters.normal > .text {
   color: var(--col);
 }
 
-.mirror > .text {
+.letters.mirrored > .text {
   display: inline-block;
   transform: scaleY(-1);
   opacity: 0.7;
@@ -32,4 +32,34 @@ body {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   background-size: 100%;
+}
+
+input[name='words'], button {
+  padding: 4px 8px;
+  margin: 0;
+  font-size: 1.5rem;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: initial;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  background-color: #eee;
+  color: #000;
+  transition: all 0.25s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  pointer-events: none;
 }

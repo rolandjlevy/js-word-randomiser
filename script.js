@@ -24,22 +24,30 @@ $('button[name=randomise]').addEventListener('click', (e) => {
   shuffle(inputText);
 });
 
+$('input[name=words]').addEventListener('keyup', (e) => {
+  const inputText = e.target.value.trim();
+  console.log(inputText.length)
+  $('button[name=randomise]').disabled = !inputText.length;
+});
+
+$('input[name=words]').focus();
+
 function shuffle(inputText) {
   const destination = Array.from(inputText);
   const current = Array(destination.length).fill('').map(item => {
     return { letter:item, colour:`#${randomHex()}` }
   });
   const timerId = setInterval(() => {
-    $('.display').innerHTML = current.map((item, index) => {      
+    $('.normal').innerHTML = current.map((item, index) => {      
       if (item.letter !== destination[index]) {
         item.letter = randomChar();
         item.colour = randomHex();
       }
       return `<span style="--col:#${item.colour}" class="text">${item.letter}</span>`;
     }).join('');
-    $('.mirror').innerHTML = $('.display').innerHTML;
+    $('.mirrored').innerHTML = $('.normal').innerHTML;
     if (current.map(item => item.letter).join('') == destination.join('')) {
       clearInterval(timerId);
     }
-  }, 25);
+  }, 50);
 }
