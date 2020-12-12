@@ -1,12 +1,19 @@
 const $ = (selector) => document.querySelector(selector);
 const maxHex = parseInt('ffffff', 16);
-const randomNum = (n) => Math.floor(Math.random() * Math.floor(n));
-const randomHex = () => randomNum(maxHex).toString(16);
-const keyCodeA = 97;
-const abcArr = String.fromCharCode(...[...Array(26)].map((_) => i++, i=keyCodeA));
-const abc = [...abcArr, ...abcArr.toUpperCase(), ...'   '];
 
-const getRandomChar = () => {
+const abcArr = () => {
+  return Array(26).fill().map((_, i) => String.fromCharCode('a'.charCodeAt(0) + i));
+}
+
+const abcUC = abcArr().map(n => n.toUpperCase());
+const abc = [...abcArr(), ...abcUC, ...'   '];
+
+const randomHex = () => {
+  const num = Math.floor(Math.random() * Math.floor(maxHex));
+  return num.toString(16);
+}
+
+const randomChar = () => {
   const randomNum = Math.floor(Math.random() * (abc.length - 1));
   return abc[randomNum];
 }
@@ -24,13 +31,12 @@ function shuffle(inputText) {
   const timerId = setInterval(() => {
     $('.display').innerHTML = current.map((item, index) => {      
       if (item.letter !== destination[index]) {
-        item.letter = getRandomChar();
+        item.letter = randomChar();
         item.colour = randomHex();
       }
       return `<span style="color:#${item.colour}">${item.letter}</span>`;
     }).join('');
     if (current.map(item => item.letter).join('') == destination.join('')) {
-      console.log('done');
       clearInterval(timerId);
     }
   }, 5);
