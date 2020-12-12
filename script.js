@@ -1,4 +1,5 @@
 const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
 const maxHex = parseInt('ffffff', 16);
 
 const abcArr = () => {
@@ -6,7 +7,7 @@ const abcArr = () => {
 }
 
 const abcUC = abcArr().map(n => n.toUpperCase());
-const abc = [...abcArr(), ...abcUC, ...'   '];
+const abc = [...abcArr(), ...abcUC, ...'____'];
 
 const randomHex = () => {
   const num = Math.floor(Math.random() * Math.floor(maxHex));
@@ -19,7 +20,7 @@ const randomChar = () => {
 }
 
 $('button[name=randomise]').addEventListener('click', (e) => {
-  const inputText = $('input[name=words]').value.trim();
+  const inputText = $('input[name=words]').value.trim().replace(/ /g, "_")
   shuffle(inputText);
 });
 
@@ -34,10 +35,11 @@ function shuffle(inputText) {
         item.letter = randomChar();
         item.colour = randomHex();
       }
-      return `<span style="color:#${item.colour}">${item.letter}</span>`;
+      return `<span style="--col:#${item.colour}" class="text">${item.letter}</span>`;
     }).join('');
+    $('.mirror').innerHTML = $('.display').innerHTML;
     if (current.map(item => item.letter).join('') == destination.join('')) {
       clearInterval(timerId);
     }
-  }, 5);
+  }, 25);
 }
