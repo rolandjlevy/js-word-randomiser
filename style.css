@@ -1,0 +1,17 @@
+body {
+  background: #000;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.display {
+  font-size: 10vmax;
+  font-family: 'Major Mono Display', monospace;
+  text-align: center;
+}
