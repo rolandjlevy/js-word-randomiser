@@ -8,11 +8,11 @@ const abcArr = () => {
 }
 
 const abcUC = abcArr().map(n => n.toUpperCase());
-const abc = [...abcArr(), ...abcUC, ...'____.,:;!@-=+£$%^&*()~'];
+const abc = [...abcArr(), ...abcUC, ...'____.,:;#?|"!@-=+£$%^&*()~'];
 
 const randomHex = () => {
   const num = Math.floor(Math.random() * Math.floor(maxHex));
-  return num.toString(16);
+  return num.toString(16).padEnd(6, "6af");
 }
 
 const randomChar = () => {
@@ -21,22 +21,25 @@ const randomChar = () => {
 }
 
 $('button[name=randomise]').addEventListener('click', (e) => {
-  const inputText = $('input[name=words]').value.trim().replace(/ /g, "_")
-  shuffle(inputText);
+  shuffle();
 });
 
 $('input[name=words]').addEventListener('keyup', (e) => {
   const inputText = e.target.value.trim();
   $('button[name=randomise]').disabled = !inputText.length;
+  if (inputText.length && e.key && e.key.toUpperCase() == 'ENTER') {
+    shuffle();
+  }
 });
 
 $('input[name=words]').focus();
 
-function shuffle(inputText) {
+function shuffle() {
   if (timerId) {
     clearInterval(timerId);
     $('.normal').innerHTML = '';
   }
+  const inputText = $('input[name=words]').value.trim().replace(/ /g, "_")
   const destination = Array.from(inputText);
   const current = Array(destination.length).fill('').map(item => {
     return { letter:item, colour:`#${randomHex()}` }

@@ -1,5 +1,7 @@
 body {
   background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .wrapper {
@@ -35,6 +37,7 @@ body {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   background-size: 100%;
+  filter: blur(1px);
 }
 
 input[name='words'], button[name='randomise'] {
