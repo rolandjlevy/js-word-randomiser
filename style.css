@@ -8,16 +8,19 @@ body {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
+  margin: 0 auto;
+  max-width: 70vw;
 }
 
 .letters {
-  font-size: 10vmax;
+  font-size: 10vmin;
   font-family: 'Major Mono Display', monospace;
   text-align: center;
   line-height: 1;
 }
 
 .letters.normal > .text {
+  display: inline-block;
   color: var(--col);
 }
 
@@ -34,12 +37,12 @@ body {
   background-size: 100%;
 }
 
-input[name='words'], button {
+input[name='words'], button[name='randomise'] {
   padding: 4px 8px;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 3vmin;
   background-color: #444;
-  color: #fff;
+  color: #eee;
   border: none;
   outline: none;
   font-family: 'Open Sans', sans-serif;
