@@ -1,6 +1,9 @@
-# Word randomiser
+# Word randomiser 🔤
 
 Enter a some words and see the letters randomising until they resolve and match your words
+
+![Screenshot of word randomiser](https://github.com/rolandjlevy/js-word-randomiser/blob/master/images/screenshot.png?raw=true "Screenshot of word randomiser")
+
 
 ### Links 🔗
 - [See the demo](https://js-word-randomiser.rolandjlevy.repl.co/)
