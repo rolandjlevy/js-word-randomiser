@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width">
     <title>Letters randomiser</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="slider.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="align-center">
       <section>
         <input type="text" name="words" placeholder="Enter..." maxlength="25" />
-        <button name="randomise" disabled>Go!</button>
+        <button name="randomise"  disabled>Go!</button>
       </section>
-    <main class="wrapper">
+      <section class="m-t-10">
+      <input 
+        type="range"
+        class="slider"
+        name="slider"
+        value="50"
+        max="500"
+        min="1" 
+      />
+      <span class="slider-display"></span>
+      </section
+    </div>
+    <div class="wrapper align-center">
       <section class="letters normal"></section>
       <section class="letters mirrored"></section>
-    </main>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
