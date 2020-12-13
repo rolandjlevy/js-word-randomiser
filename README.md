@@ -1,4 +1,4 @@
-# Word randomiser 🔤
+# Algorithm to Randomise Words 💫 
 
 Enter a some words and see the letters randomising until they resolve and match your words
 
