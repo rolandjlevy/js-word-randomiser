@@ -4,27 +4,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Letters randomiser</title>
+    <link href="form.css" rel="stylesheet" type="text/css" />
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="slider.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="align-center">
-      <section>
-        <input type="text" name="words" placeholder="Enter..." maxlength="25" />
-        <button name="randomise"  disabled>Go!</button>
+      <section class="align-center">
+        <h3>Enter words to randomise</h3>
+        <div class="m-t-10">
+          <input type="text" name="words" placeholder="Max: 20 characters" maxlength="20" />
+          <button name="randomise"  disabled>Go!</button>
+        </div>
       </section>
-      <section class="m-t-10">
-      <input 
-        type="range"
-        class="slider"
-        name="slider"
-        value="50"
-        max="500"
-        min="1" 
-      />
-      <span class="slider-display"></span>
+      <section class="align-center m-t-20">
+        <h3>Milliseconds between each change</h3>
+        <div class="m-t-5">
+          <input 
+            type="range"
+            class="slider"
+            name="slider"
+            value="50"
+            max="500"
+            min="1" 
+          />
+          <span class="slider-display"></span>
+        </div>
       </section
     </div>
     <div class="wrapper align-center">
