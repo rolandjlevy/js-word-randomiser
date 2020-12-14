@@ -1,8 +1,14 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
-const setSpeed = (speed) => $('.slider-display').textContent = speed + 'ms';
 const maxHex = parseInt('ffffff', 16);
 let timerId;
+
+const setSpeed = (speed) => $('.slider-display').textContent = speed + 'ms';
+const nums = Array(10).fill(0).map((_, i) => i).join('');
+const isNumber = (str) => /^[0-9]$/i.test(str);
+
+const parsedLocation = simpleQueryString.parse(location.search);
+const { msg } = parsedLocation;
 
 const abcArr = () => {
   return Array(26).fill().map((_, i) => {
@@ -18,6 +24,14 @@ const randomHex = () => {
 const randomChar = () => {
   const randomNum = Math.floor(Math.random() * (abc.length - 1));
   return abc[randomNum];
+}
+
+const setDesination = (inputText) => {
+  const lettersToNumbers = ['O', 'I', 'Z', 'E', 'A', 'S', 'G', 'T', 'B', 'J'];
+  return Array.from(inputText).map(item => {
+    const index = Number(item);
+    return isNaN(index) ? item : lettersToNumbers[index];
+  });
 }
 
 $('input[name=slider]').addEventListener('input', (e) => {
@@ -65,6 +79,8 @@ function shuffle() {
 
 // Initialise
 const abcUC = abcArr().map(n => n.toUpperCase());
-const abc = [...abcArr(), ...abcUC, ...'____.,:;#?|"\'!@-=+£$%^&*()~'];
+const abc = [...abcArr(), ...abcUC, ...nums, ...'____.,:;#?|"\'!@-=+£$%^&*()~<>[]()'];
 setSpeed(50);
+$('input[name=words]').value = msg || '';
 $('input[name=words]').focus();
+$('button[name=randomise]').disabled = !(msg && msg.length);

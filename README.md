@@ -4,13 +4,18 @@ Enter any words and see the letters randomising until they resolve and match you
 
 ![Screenshot of word randomiser](https://github.com/rolandjlevy/js-word-randomiser/blob/master/images/screenshot.png?raw=true "Screenshot of word randomiser")
 
-
 ### Links 🔗
 - [See the demo](https://js-word-randomiser.rolandjlevy.repl.co/)
 - [View the source code](https://repl.it/@RolandJLevy/js-word-randomiser)
 - [Explore the Github repo](https://github.com/rolandjlevy/js-word-randomiser)
 
+### Features 💡
+- Add a message to the `msg` parameter at end of the URL and send it to a friend, like this: [https://js-word-randomiser.rolandjlevy.repl.co?**msg=I+Love+JavaScript!**](https://js-word-randomiser.rolandjlevy.repl.co?msg=I+Love+JavaScript%21)
+- Built from scratch with CSS and JavaScript - no frameworks or libraries like React or Vue
+- Completely responsive and mobile friendly
+
 ### Notes 📝
+- Using the [CDN](https://www.jsdelivr.com/package/npm/simple-query-string) from [simple-query-string](https://www.npmjs.com/package/simple-query-string) to parse URL query strings
 - More about randomising functions: [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 - Create an array containing all the letters of the alphabet: [stackoverflow.com](https://stackoverflow.com/questions/12376870/create-an-array-of-characters-from-specified-range)
 - Font is 'Major Mono Display' from [Google Fonts](https://fonts.google.com/)
