@@ -84,3 +84,4 @@ setSpeed(50);
 $('input[name=words]').value = msg || '';
 $('input[name=words]').focus();
 $('button[name=randomise]').disabled = !(msg && msg.length);
+msg && shuffle();
