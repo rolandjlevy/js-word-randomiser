@@ -3,12 +3,12 @@ const $$ = (selector) => document.querySelectorAll(selector);
 const maxHex = parseInt('ffffff', 16);
 let timerId;
 
-const setSpeed = (speed) => $('.slider-display').textContent = speed + 'ms';
+const setSpeedDisplay = (speed) => $('.slider-display').textContent = speed + 'ms';
 const nums = Array(10).fill(0).map((_, i) => i).join('');
 const isNumber = (str) => /^[0-9]$/i.test(str);
 
 const parsedLocation = simpleQueryString.parse(location.search);
-const { msg } = parsedLocation;
+const { msg, speed } = parsedLocation;
 
 const abcArr = () => {
   return Array(26).fill().map((_, i) => {
@@ -35,7 +35,7 @@ const setDesination = (inputText) => {
 }
 
 $('input[name=slider]').addEventListener('input', (e) => {
-  setSpeed(e.target.value);
+  setSpeedDisplay(e.target.value);
   if (timerId) {
     clearInterval(timerId);
   }
@@ -55,7 +55,7 @@ $('input[name=words]').addEventListener('keyup', (e) => {
 
 function shuffle() {
   if (timerId) clearInterval(timerId);
-  const speed = $('.slider').value;
+  const selectedSpeed = $('.slider').value;
   const inputText = $('input[name=words]').value.trim().replace(/ /g, "_")
   const destination = Array.from(inputText);
   const current = Array(destination.length).fill('').map(item => {
@@ -74,14 +74,16 @@ function shuffle() {
     if (current.map(item => item.letter).join('') == destination.join('')) {
       clearInterval(timerId);
     }
-  }, speed);
+  }, selectedSpeed);
 }
 
 // Initialise
 const abcUC = abcArr().map(n => n.toUpperCase());
-const abc = [...abcArr(), ...abcUC, ...nums, ...'____.,:;#?|"\'!@-=+£$%^&*()~<>[]()'];
-setSpeed(50);
+const abc = [...abcArr(), ...abcUC, ...nums, ...'____.,:;÷®©#¥¢?|"\'!@-=+£$%^&*{}~<>[]()`'];
 $('input[name=words]').value = msg || '';
 $('input[name=words]').focus();
 $('button[name=randomise]').disabled = !(msg && msg.length);
+const initialSpeed = Number(speed) || 50;
+$('input[name=slider]').value = initialSpeed;
+setSpeedDisplay(initialSpeed);
 msg && shuffle();
