@@ -10,7 +10,7 @@ Type some words and see the letters randomising until they resolve and match you
 - [Explore the Github repo](https://github.com/rolandjlevy/js-word-randomiser)
 
 ### Features 💡
-- Define the speed and message using the `speed` and `msg` parameters at end of the URL and send it to a friend, like this: [https://js-word-randomiser.rolandjlevy.repl.co?**speed=50&msg=I+Love+JavaScript!**](https://js-word-randomiser.rolandjlevy.repl.co?speed=50&msg=I+Love+JavaScript%21)
+- Define the `speed` and `msg` parameters at end of the URL and send it to a friend, like this: [https://js-word-randomiser.rolandjlevy.repl.co?**speed=50&msg=I+Love+JavaScript!**](https://js-word-randomiser.rolandjlevy.repl.co?speed=50&msg=I+Love+JavaScript%21)
 - Built from scratch with CSS and JavaScript - no frameworks or libraries like React or Vue
 - Completely responsive and mobile friendly
 
