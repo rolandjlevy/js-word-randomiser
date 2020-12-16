@@ -50,14 +50,26 @@ h3 {
   text-transform: uppercase;
 }
 
-.letters.normal > .text {
+.letters > .text {
   display: inline-block;
+  cursor: pointer;
+}
+
+.letters.normal > .text {
+  position: initial;
   color: var(--col);
+  transform: scale(1);
+  z-index: -1;
+}
+
+.letters.normal > .text:hover {
+  transform: scale(1.5);
+  z-index: 10;
 }
 
 .letters.mirrored > .text {
-  display: inline-block;
-  transform: scaleY(-1);
+  position: initial;
+  transform: scaleX(1) scaleY(-1);
   opacity: 0.7;
   background: linear-gradient(180deg, transparent, var(--col));
   background-clip: text;
@@ -67,6 +79,12 @@ h3 {
   -moz-text-fill-color: transparent;
   background-size: 100%;
   filter: blur(1px);
+  z-index: -1;
+}
+
+.letters.mirrored > .text:hover {
+  transform: scaleX(1.5) scaleY(-1.5);
+  z-index: 10;
 }
 
 input[name='words'], button[name='randomise'] {

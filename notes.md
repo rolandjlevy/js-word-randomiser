@@ -11,6 +11,22 @@ https://simple.m.wikipedia.org/wiki/Leet
 9 = g or J
 10 = I and O or L and O or 7 and O
 
-```const lettersToNumbers = ['O', 'I', 'Z', 'E', 'A', 'S', 'G', 'T', 'B', 'J'];```
+```js
+const lettersToNumbers = ['O', 'I', 'Z', 'E', 'A', 'S', 'G', 'T', 'B', 'J'];
+```
+
+```js
+const setDesination = (inputText) => {
+  const lettersToNumbers = ['O', 'I', 'Z', 'E', 'A', 'S', 'G', 'T', 'B', 'J'];
+  return Array.from(inputText).map(item => {
+    const index = Number(item);
+    return isNaN(index) ? item : lettersToNumbers[index];
+  });
+}
+```
+
+```js
+const isNumber = (str) => /^[0-9]$/i.test(str);
+```
 
 https://javascriptio.com/view/505022/javascript-how-do-i-check-if-the-key-pressed-on-a-form-field-is-a-digit-0-9
