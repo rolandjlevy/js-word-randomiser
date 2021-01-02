@@ -4,6 +4,8 @@ const setSpeedDisplay = (speed) => $('.slider-display').textContent = speed + 'm
 const parsedLocation = simpleQueryString.parse(location.search);
 const { msg, speed } = parsedLocation;
 
+$('#year').textContent = new Date().getFullYear();
+
 const abcArr = () => {
   return Array(26).fill().map((_, i) => {
     return String.fromCharCode('a'.charCodeAt(0) + i);
