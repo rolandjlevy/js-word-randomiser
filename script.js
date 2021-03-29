@@ -59,6 +59,7 @@ $('input[name=slider]').addEventListener('input', (e) => {
   setSpeedDisplay(e.target.value);
   if (timerId) {
     clearInterval(timerId);
+    shuffle('slider');
   }
 });
 
@@ -74,16 +75,18 @@ $('input[name=words]').addEventListener('keyup', (e) => {
   }
 });
 
-let timerId;
+let timerId, inputText, destination, current;
 
-const shuffle = () => {
+const shuffle = (slider) => {
   if (timerId) clearInterval(timerId);
   const selectedSpeed = $('.slider').value;
-  const inputText = $('input[name=words]').value.trim().replace(/ /g, "_")
-  const destination = Array.from(inputText);
-  const current = Array(destination.length).fill('').map(item => {
-    return { letter:item, colour:`#${randomHex()}` }
-  });
+  if (!slider) {
+    inputText = $('input[name=words]').value.trim().replace(/ /g, "_")
+    destination = Array.from(inputText);
+    current = Array(destination.length).fill('').map(item => {
+      return { letter:item, colour:`#${randomHex()}` }
+    });
+  }
   timerId = setInterval(() => {
     $('.normal').innerHTML = getRandomLetters(current, destination);
     $('.mirrored').innerHTML = $('.normal').innerHTML;
