@@ -99,9 +99,9 @@ const shuffle = (slider) => {
 
 // Initialise
 const DEFAULT_MESSAGE = 'Hello World!';
-$('input[name=words]').value = msg || DEFAULT_MESSAGE;
 $('input[name=words]').focus();
-$('button[name=randomise]').disabled = !(msg && msg.length);
+$('input[name=words]').value = msg || DEFAULT_MESSAGE;
+// $('button[name=randomise]').disabled = !(msg && msg.length);
 const initialSpeed = Number(speed) || 50;
 $('input[name=slider]').value = initialSpeed;
 setSpeedDisplay(initialSpeed);
