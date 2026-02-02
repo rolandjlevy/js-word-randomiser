@@ -105,4 +105,4 @@ $('button[name=randomise]').disabled = false; // !(msg && msg.length);
 const initialSpeed = Number(speed) || 50;
 $('input[name=slider]').value = initialSpeed;
 setSpeedDisplay(initialSpeed);
-msg && shuffle();
+shuffle();
